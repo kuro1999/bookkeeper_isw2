@@ -126,7 +126,7 @@
       -->
       <id>jdk-without-javah</id>
       <activation>
-         <jdk>[10,)</jdk>
+        <jdk>[10,)</jdk>
       </activation>
       <build>
         <plugins>
@@ -135,27 +135,27 @@
             <artifactId>nar-maven-plugin</artifactId>
             <extensions>true</extensions>
             <executions>
-               <execution>
-               <!-- javah is not present in JDK10 onwards,
-                    you have to to use javac -h -->
-                  <id>default-nar-javah</id>
-                  <phase>none</phase>
-               </execution>
-             </executions>
+              <execution>
+                <!-- javah is not present in JDK10 onwards,
+                     you have to to use javac -h -->
+                <id>default-nar-javah</id>
+                <phase>none</phase>
+              </execution>
+            </executions>
           </plugin>
           <plugin>
-             <groupId>org.apache.maven.plugins</groupId>
-             <artifactId>maven-compiler-plugin</artifactId>
-             <configuration>
-                <compilerArgs>
-                  <!-- add -h flag to javac -->
-                  <compilerArg>-h</compilerArg>
-                  <compilerArg>${project.build.directory}/nar/javah-include</compilerArg>
-                </compilerArgs>
-             </configuration>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+              <compilerArgs>
+                <!-- add -h flag to javac -->
+                <compilerArg>-h</compilerArg>
+                <compilerArg>${project.build.directory}/nar/javah-include</compilerArg>
+              </compilerArgs>
+            </configuration>
           </plugin>
-            </plugins>
-        </build>
+        </plugins>
+      </build>
     </profile>
     <profile>
       <id>mac</id>
